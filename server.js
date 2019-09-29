@@ -38,7 +38,7 @@ app.get("/", function(req, res) {
 });
 app.get("/", function(req, res){
     db.Article.find({})
-    .then(function)(dbArticle){
+    .then(function(dbArticle){
         res.render("index", {
             msg: "Welcome!",
             articles: dbArticle
@@ -77,6 +77,8 @@ app.get("/articles/:id", function(req, res){
             res.json(err);
         });   
     });
+//=============================================
+// route for posting a note
 app.post("/articles/:id", function(req, res) {
     db.Note.create(req.body)
     .then(function(dbNote){
@@ -94,8 +96,8 @@ app.post("/articles/:id", function(req, res) {
 
 //====================================
 // server start
-app.listen(PORT, function() {
-    console.log("App runniong on port " + PORT + "!");
+app.listen(PORT, function(){
+    console.log("App running on port " + PORT + "!"); 
+    });
 });
-
 });
