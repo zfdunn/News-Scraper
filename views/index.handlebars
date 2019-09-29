@@ -1,0 +1,18 @@
+<div id="wrapper">
+  <h1>Welcome to NewsScaper!</h1>
+  <button id="getScrape"><a href="/scrape">Scrape New Articles</a></button>
+</div>
+
+<div id="articles">
+  {{#each articles}}
+  <p data-id="{{this._id}}">{{this.title}}</p>
+  {{!-- <p>{{this.title}}</p> --}}
+  <a href={{this.link}}>{{this.link}}</a>
+  {{!-- <button id="favorite">Save Article</button> --}}
+  <button id="addNote">Add Note</button>
+  <p>--------</p>
+  {{/each}}
+</div>
+<div id="notes">
+
+</div>
