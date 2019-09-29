@@ -35,3 +35,23 @@ $(document).on("click", "p", function(){
         }
     });
 });
+//==========================================
+// save the note function 
+$(document).on("click", "#savenote", function(){
+    let thisId = $(this).attr("data-id");
+    $.ajax({
+        method: "POST",
+        url: "/articles/" + thisId,
+        data: {
+            title: $("#titleinput").val().trim(),
+            body: $("bodyinput").val().trim()
+        }
+    }).then(function(data){
+        console.log(data);
+        $("#notes").empty();
+    });
+});
+//============================================
+// removes other values
+$("#titleinput").val("");
+$("#bodyinput").val("");
